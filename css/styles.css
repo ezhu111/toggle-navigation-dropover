@@ -1,0 +1,141 @@
+html {
+	font-size: 62.5%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* mobile first css */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    background-color: #192f5e;
+}
+
+header {
+	background-color: #fff;
+	padding: 2%;
+}
+
+header a {
+    color: #3f3f3f;
+    text-decoration: none;
+    display: block; /* Allows the clickable area to fill the parent container (li) */
+
+}
+
+
+.menu a:hover,
+.menu a:active {
+    background-color: gainsboro;
+    border-radius: 4px;
+}
+
+.toggle-btn {
+    border: none;
+    background-color: #fff;
+    outline: none; /*Focus outline is used to provide visual feedback - screenreaders, mouseless navigation*/
+}
+
+.toggle-btn:hover {
+    cursor: pointer; /* Lets people know that this is a part of the navigation */
+}
+
+svg rect {
+    fill: #3f3f3f; /* Fill changes the colour of an svg */
+}
+
+.menu li {
+    line-height: 4rem; /* Using to set the height of the container */
+    text-align: center;
+    }
+
+/* Step two: style the nav and hide the button when we are ready to move to a wider viewpoint */
+header nav {
+    position: absolute; /* Now outside of the dom - no longer a true child of the parent container. Put the bg colour back */
+    left: 0;
+    width: 100vw; /* That is 100% of the viewport width */
+    background-color: #ffffff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+ul.menu {
+    padding-bottom: 1rem;
+}
+
+.show-nav {
+    max-height: 20rem;
+}
+
+/* ************************* section ****************** */
+section {
+    padding: 3.125rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+section p {
+    color: #d5e294;
+    border-bottom: 2px solid #d5e294;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 1.777rem;
+}
+
+section h2,
+footer {
+    color: #fff;
+    font-size: 3.157rem;
+    margin-bottom: 2rem;
+}
+
+/*--- Footer --- */
+footer {
+	text-align: center;
+	position: -webkit-sticky;
+	position: sticky;
+}
+
+@media only screen and (min-width: 510px) {
+        .toggle-btn {
+            display: none; /* Removes the object from the document flow */
+        }
+
+        header nav {
+            max-height: 6.6rem; /* There is enough room from the top to hold the header */
+            position: static; /* Reset back to default */
+            overflow: visible; /* Reset back to default */
+            width: auto; /* Reset back to default */
+        }
+
+        .menu,
+        header {
+            display: flex; /* Change the nav from a vertical layout to an horizontal layout */
+            justify-content: space-between;
+        }
+
+        .menu li {
+            margin-left: 0.5rem;
+            /* flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: auto;
+            text-align: center; */
+        }
+
+        .menu li a {
+            padding: 0.5rem; 
+        }
+}
+
+@media only screen and (min-width: 1300px) {
+        /* Constrains the content to keep it from getting to far apart */
+        header {
+            width: 1300px;
+            margin: 0 auto;
+        }
+    }
